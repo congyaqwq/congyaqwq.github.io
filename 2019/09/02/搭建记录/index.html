@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   
-  <title>Hexo</title>
+  <title>使用hexo搭建博客过程 | Hexo</title>
   
   
 
@@ -44,7 +44,7 @@
   
   
   <div class="cover-wrapper">
-    <cover class='cover  '>
+    <cover class='cover post half'>
       
         
   <h1 class='title'>Smart's Blog</h1>
@@ -245,36 +245,10 @@
     <div class='body-wrapper'>
       <div class='l_main'>
   
-  <section class="post-list">
-    
-      
-        
-          
-        
-          
-        
-          
-        
-          
-        
-          
-        
-          
-        
-          
-        
-          
-        
-          
-        
-      
-    
-    
-      
-        
-          <div class='post-wrapper'>
-            <article class="post reveal ">
+
   
+    <article id="post" class="post white-box article-type-post" itemscope itemprop="blogPost">
+      
 
 
   <section class='meta'>
@@ -283,109 +257,13 @@
     <div class="meta" id="header-meta">
       
         
-  <h2 class="title">
-    <a href="/2019/09/02/面试记录/">
-      面试问题
-    </a>
-  </h2>
-
-
-      
-      <div class='new-meta-box'>
-        
-          
-        
-          
-            
-  <div class='new-meta-item author'>
-    <a href="http://106.52.23.212" rel="nofollow">
-      
-        <i class="fas fa-user" aria-hidden="true"></i>
-      
-      <p>John Doe</p>
-    </a>
-  </div>
-
-
-          
-        
-          
-            <div class="new-meta-item date">
-  <a class='notlink'>
-    <i class="fas fa-calendar-alt" aria-hidden="true"></i>
-    <p>2019-09-02</p>
-  </a>
-</div>
-
-          
-        
-          
-            
   
-  <div class='new-meta-item category'>
-    <a href='/categories/面试/' rel="nofollow">
-      <i class="fas fa-folder-open" aria-hidden="true"></i>
-      <p>面试</p>
-    </a>
-  </div>
-
-
-          
-        
-          
-            
-
-          
-        
-          
-            
-
-          
-        
-      </div>
-      
-        <hr>
-      
-    </div>
-  </section>
-
-
-  <section class="article typo">
-    <div class="article-entry" itemprop="articleBody">
-      <h1 id="面试组件"><a href="#面试组件" class="headerlink" title="面试组件"></a>面试组件</h1>
-      
-        <div class="readmore">
-          <a href="/2019/09/02/面试记录/" class="flat-box">
-            <i class="fas fa-book-open fa-fw" aria-hidden="true"></i>
-            阅读全文
-          </a>
-        </div>
-      
-    </div>
-    
-  </section>
-</article>
-
-          </div>
-        
-      
-        
-          <div class='post-wrapper'>
-            <article class="post reveal ">
+    <h1 class="title">
+      <a href="/2019/09/02/搭建记录/">
+        使用hexo搭建博客过程
+      </a>
+    </h1>
   
-
-
-  <section class='meta'>
-    
-    
-    <div class="meta" id="header-meta">
-      
-        
-  <h2 class="title">
-    <a href="/2019/09/02/搭建记录/">
-      使用hexo搭建博客过程
-    </a>
-  </h2>
 
 
       
@@ -432,6 +310,19 @@
         
           
             
+  
+    <div class="new-meta-item browse busuanzi">
+      <a class='notlink'>
+        <i class="fas fa-eye" aria-hidden="true"></i>
+        <p>
+          <span id="busuanzi_value_page_pv">
+            <i class="fas fa-spinner fa-spin fa-fw" aria-hidden="true"></i>
+          </span>
+        </p>
+      </a>
+    </div>
+  
+
 
           
         
@@ -448,713 +339,187 @@
   </section>
 
 
-  <section class="article typo">
-    <div class="article-entry" itemprop="articleBody">
-      <h1 id="hexo搭建博客"><a href="#hexo搭建博客" class="headerlink" title="hexo搭建博客"></a>hexo搭建博客</h1>
-      
-        <div class="readmore">
-          <a href="/2019/09/02/搭建记录/" class="flat-box">
-            <i class="fas fa-book-open fa-fw" aria-hidden="true"></i>
-            阅读全文
-          </a>
+      <section class="article typo">
+        <div class="article-entry" itemprop="articleBody">
+          <h1 id="hexo搭建博客"><a href="#hexo搭建博客" class="headerlink" title="hexo搭建博客"></a>hexo搭建博客</h1><a id="more"></a>
+
+<h1 id="记一次搭建hexo个人博客的心得"><a href="#记一次搭建hexo个人博客的心得" class="headerlink" title="记一次搭建hexo个人博客的心得"></a>记一次搭建hexo个人博客的心得</h1><h3 id="前提：要有node环境和git，使用node-v和git-v检测"><a href="#前提：要有node环境和git，使用node-v和git-v检测" class="headerlink" title="前提：要有node环境和git，使用node -v和git -v检测"></a>前提：要有node环境和git，使用node -v和git -v检测</h3><h4 id="1-首先用淘宝镜像源cnpm代替npm-registry-镜像"><a href="#1-首先用淘宝镜像源cnpm代替npm-registry-镜像" class="headerlink" title="1. 首先用淘宝镜像源cnpm代替npm(registry: 镜像)"></a>1. 首先用淘宝镜像源cnpm代替npm(registry: 镜像)</h4><p><code>sudo npm install -g cnpm -registry=https://registry.npm.taobao.org</code></p>
+<p>说明：-g全局安装，使用淘宝镜像源cnpm</p>
+<pre><code>//也可以直接安装，不花里胡哨
+    npm install hexo-cli -g</code></pre><h4 id="2-输入cnpm看控制台是否报错"><a href="#2-输入cnpm看控制台是否报错" class="headerlink" title="2. 输入cnpm看控制台是否报错"></a>2. 输入cnpm看控制台是否报错</h4><h5 id="解决方案"><a href="#解决方案" class="headerlink" title="解决方案"></a>解决方案</h5><pre><code>//安装要自己配置软链接，亲～
+    sudo ln -s ~/node/bin/cnpm /usr/local/bin
+    sudo ln -s ~/node/bin/hexo /usr/local/bin</code></pre><h4 id="3-初始化一个博客"><a href="#3-初始化一个博客" class="headerlink" title="3. 初始化一个博客"></a>3. 初始化一个博客</h4><pre><code>//记得sudo
+    sudo hexo init blog
+    //创建
+    hexo n
+    //new一篇文章(要在source文件夹中)
+    vim xxx.md
+    //使用Markdown格式编辑，在初始化后会自动生成新的文章</code></pre><h4 id="4-运行"><a href="#4-运行" class="headerlink" title="4. 运行"></a>4. 运行</h4><pre><code>hexo server
+//运行服务器，可以简写成hexo s，在localhost:4000上可以查看网页</code></pre><h4 id="5-换主题-有git"><a href="#5-换主题-有git" class="headerlink" title="5. 换主题(有git)"></a>5. 换主题(有git)</h4><p>官网链接：<a href="https://hexo.io/themes/" target="_blank" rel="noopener">https://hexo.io/themes/</a></p>
+<p>#####1. 进入目录下下载，下载到blog(当前应用名称目录下)的themes中</p>
+<pre><code>git clone https://github.com/xaoxuu/hexo-theme-material-x 
+这是推荐的一个主题，但是貌似有bug，慎用。</code></pre><h5 id="2-编辑-config-yml"><a href="#2-编辑-config-yml" class="headerlink" title="2.     编辑_config.yml"></a>2.     编辑_config.yml</h5><p>找到 Extensions中的theme，在文档末尾处<br>theme: hexo-theme-cutie//改成放在themes下的文件夹名称即可</p>
+<p>#####3. 载入主题<br>    hexo clean //清除缓存<br>    hexo g  //重新生成<br>    hexo s  //即可看到主题更换之后的效果</p>
+<h4 id="6-推到git服务器上"><a href="#6-推到git服务器上" class="headerlink" title="6. 推到git服务器上"></a>6. 推到git服务器上</h4><p>#####1. 安装一个插件<br>    cnpm install –save hexo-deployer-git</p>
+<h5 id="2-编辑-config-yml-1"><a href="#2-编辑-config-yml-1" class="headerlink" title="2.     编辑_config.yml"></a>2.     编辑_config.yml</h5><pre><code>调到配置文件文档末尾，找到deploy
+deploy:
+  type: git
+  repo: git@github.com:congyaqwq/congyaqwq.github.io.git
+ //自己的github仓库地址，新建仓库名称一定是用户名.github.io
+  branch: master</code></pre><p>#####3. 部署到服务器hexo deployment<br>        hexo d 上传到服务器<br>最后可以直接使用用户名.github.io访问<br><a href="https://congyaqwq.github.io" target="_blank" rel="noopener">成品可以点击</a></p>
+
         </div>
-      
-    </div>
-    
-  </section>
-</article>
-
-          </div>
-        
-      
-        
-          <div class='post-wrapper'>
-            <article class="post reveal ">
-  
-
-
-  <section class='meta'>
-    
-    
-    <div class="meta" id="header-meta">
-      
-        
-  <h2 class="title">
-    <a href="/2019/09/02/git上传/">
-      git上传文件操作
-    </a>
-  </h2>
-
-
-      
-      <div class='new-meta-box'>
         
           
-        
-          
-            
-  <div class='new-meta-item author'>
-    <a href="http://106.52.23.212" rel="nofollow">
-      
-        <i class="fas fa-user" aria-hidden="true"></i>
-      
-      <p>John Doe</p>
-    </a>
-  </div>
 
 
-          
+  <section class='meta' id="footer-meta">
+    <hr>
+    <div class='new-meta-box'>
+      
         
-          
-            <div class="new-meta-item date">
+          <div class="new-meta-item date" itemprop="dateUpdated" datetime="2019-09-02T22:51:46+08:00">
   <a class='notlink'>
-    <i class="fas fa-calendar-alt" aria-hidden="true"></i>
-    <p>2019-09-02</p>
+    <i class="fas fa-clock" aria-hidden="true"></i>
+    <p>最后更新于 Sep 2, 2019</p>
   </a>
 </div>
 
-          
+        
+      
         
           
-            
-  
-  <div class='new-meta-item category'>
-    <a href='/categories/git/' rel="nofollow">
-      <i class="fas fa-folder-open" aria-hidden="true"></i>
-      <p>git</p>
-    </a>
+
+        
+      
+        
+          
+  <div class="new-meta-item share -mob-share-list">
+  <div class="-mob-share-list share-body">
+    
+      
+        <a class="-mob-share-qq" title="QQ好友" rel="external nofollow noopener noreferrer"
+          
+          href="http://connect.qq.com/widget/shareqq/index.html?url=http://106.52.23.212/2019/09/02/搭建记录/&title=使用hexo搭建博客过程 | Hexo&summary=hexo搭建博客"
+          
+          >
+          
+            <img src="https://cdn.jsdelivr.net/gh/xaoxuu/assets@19.1.9/logo/128/qq.png">
+          
+        </a>
+      
+    
+      
+        <a class="-mob-share-qzone" title="QQ空间" rel="external nofollow noopener noreferrer"
+          
+          href="https://sns.qzone.qq.com/cgi-bin/qzshare/cgi_qzshare_onekey?url=http://106.52.23.212/2019/09/02/搭建记录/&title=使用hexo搭建博客过程 | Hexo&summary=hexo搭建博客"
+          
+          >
+          
+            <img src="https://cdn.jsdelivr.net/gh/xaoxuu/assets@19.1.9/logo/128/qzone.png">
+          
+        </a>
+      
+    
+      
+        <a class="-mob-share-weibo" title="微博" rel="external nofollow noopener noreferrer"
+          
+          href="http://service.weibo.com/share/share.php?url=http://106.52.23.212/2019/09/02/搭建记录/&title=使用hexo搭建博客过程 | Hexo&summary=hexo搭建博客"
+          
+          >
+          
+            <img src="https://cdn.jsdelivr.net/gh/xaoxuu/assets@19.1.9/logo/128/weibo.png">
+          
+        </a>
+      
+    
   </div>
-
-
-          
-        
-          
-            
-
-          
-        
-          
-            
-
-          
-        
-      </div>
-      
-        <hr>
-      
-    </div>
-  </section>
-
-
-  <section class="article typo">
-    <div class="article-entry" itemprop="articleBody">
-      <h1 id="git上传文件"><a href="#git上传文件" class="headerlink" title="git上传文件"></a>git上传文件</h1>
-      
-        <div class="readmore">
-          <a href="/2019/09/02/git上传/" class="flat-box">
-            <i class="fas fa-book-open fa-fw" aria-hidden="true"></i>
-            阅读全文
-          </a>
-        </div>
-      
-    </div>
-    
-  </section>
-</article>
-
-          </div>
-        
-      
-        
-          <div class='post-wrapper'>
-            <article class="post reveal ">
-  
-
-
-  <section class='meta'>
-    
-    
-    <div class="meta" id="header-meta">
-      
-        
-  <h2 class="title">
-    <a href="/2019/09/02/字符串方法/">
-      js字符串中的常用方法
-    </a>
-  </h2>
-
-
-      
-      <div class='new-meta-box'>
-        
-          
-        
-          
-            
-  <div class='new-meta-item author'>
-    <a href="http://106.52.23.212" rel="nofollow">
-      
-        <i class="fas fa-user" aria-hidden="true"></i>
-      
-      <p>John Doe</p>
-    </a>
-  </div>
-
-
-          
-        
-          
-            <div class="new-meta-item date">
-  <a class='notlink'>
-    <i class="fas fa-calendar-alt" aria-hidden="true"></i>
-    <p>2019-09-02</p>
-  </a>
 </div>
 
-          
+
+
         
-          
-            
+      
+    </div>
+  </section>
+
+
+        
+        
+            <div class="prev-next">
+                
+                    <section class="prev">
+                        <span class="art-item-left">
+                            <h6><i class="fas fa-chevron-left" aria-hidden="true"></i>&nbsp;上一页</h6>
+                            <h4>
+                                <a href="/2019/09/02/面试记录/" rel="prev" title="面试问题">
+                                  
+                                      面试问题
+                                  
+                                </a>
+                            </h4>
+                            
+                        </span>
+                    </section>
+                
+                
+                    <section class="next">
+                        <span class="art-item-right" aria-hidden="true">
+                            <h6>下一页&nbsp;<i class="fas fa-chevron-right" aria-hidden="true"></i></h6>
+                            <h4>
+                                <a href="/2019/09/02/git上传/" rel="prev" title="git上传文件操作">
+                                    
+                                        git上传文件操作
+                                    
+                                </a>
+                            </h4>
+                            
+                        </span>
+                    </section>
+                
+            </div>
+        
+      </section>
+    </article>
   
-  <div class='new-meta-item category'>
-    <a href='/categories/js/' rel="nofollow">
-      <i class="fas fa-folder-open" aria-hidden="true"></i>
-      <p>js</p>
-    </a>
-  </div>
+
+  
+    <!-- 显示推荐文章和评论 -->
 
 
-          
-        
-          
-            
 
-          
-        
-          
-            
-
-          
-        
-      </div>
+  <article class="post white-box comments">
+    <section class="article typo">
+      <h4><i class="fas fa-comments fa-fw" aria-hidden="true"></i>&nbsp;评论</h4>
       
-        <hr>
       
-    </div>
-  </section>
-
-
-  <section class="article typo">
-    <div class="article-entry" itemprop="articleBody">
-      <h1 id="字符串方法"><a href="#字符串方法" class="headerlink" title="字符串方法"></a>字符串方法</h1>
       
-        <div class="readmore">
-          <a href="/2019/09/02/字符串方法/" class="flat-box">
-            <i class="fas fa-book-open fa-fw" aria-hidden="true"></i>
-            阅读全文
-          </a>
-        </div>
       
-    </div>
-    
-  </section>
-</article>
-
+        <section id="comments">
+          <div id="valine_container" class="valine_thread">
+            <i class="fas fa-spinner fa-spin fa-fw"></i>
           </div>
-        
+        </section>
       
-        
-          <div class='post-wrapper'>
-            <article class="post reveal ">
+    </section>
+  </article>
+
+
   
 
 
-  <section class='meta'>
-    
-    
-    <div class="meta" id="header-meta">
-      
-        
-  <h2 class="title">
-    <a href="/2019/09/02/数组方法/">
-      js数组方法总结
-    </a>
-  </h2>
 
 
-      
-      <div class='new-meta-box'>
-        
-          
-        
-          
-            
-  <div class='new-meta-item author'>
-    <a href="http://106.52.23.212" rel="nofollow">
-      
-        <i class="fas fa-user" aria-hidden="true"></i>
-      
-      <p>John Doe</p>
-    </a>
-  </div>
+<!-- 根据页面mathjax变量决定是否加载MathJax数学公式js -->
 
 
-          
-        
-          
-            <div class="new-meta-item date">
-  <a class='notlink'>
-    <i class="fas fa-calendar-alt" aria-hidden="true"></i>
-    <p>2019-09-02</p>
-  </a>
-</div>
 
-          
-        
-          
-            
-  
-  <div class='new-meta-item category'>
-    <a href='/categories/js/' rel="nofollow">
-      <i class="fas fa-folder-open" aria-hidden="true"></i>
-      <p>js</p>
-    </a>
-  </div>
-
-
-          
-        
-          
-            
-
-          
-        
-          
-            
-
-          
-        
-      </div>
-      
-        <hr>
-      
-    </div>
-  </section>
-
-
-  <section class="article typo">
-    <div class="article-entry" itemprop="articleBody">
-      <h1 id="数组方法"><a href="#数组方法" class="headerlink" title="数组方法"></a>数组方法</h1>
-      
-        <div class="readmore">
-          <a href="/2019/09/02/数组方法/" class="flat-box">
-            <i class="fas fa-book-open fa-fw" aria-hidden="true"></i>
-            阅读全文
-          </a>
-        </div>
-      
-    </div>
-    
-  </section>
-</article>
-
-          </div>
-        
-      
-        
-          <div class='post-wrapper'>
-            <article class="post reveal ">
-  
-
-
-  <section class='meta'>
-    
-    
-    <div class="meta" id="header-meta">
-      
-        
-  <h2 class="title">
-    <a href="/2019/09/02/父子组件/">
-      父子组件方法调用
-    </a>
-  </h2>
-
-
-      
-      <div class='new-meta-box'>
-        
-          
-        
-          
-            
-  <div class='new-meta-item author'>
-    <a href="http://106.52.23.212" rel="nofollow">
-      
-        <i class="fas fa-user" aria-hidden="true"></i>
-      
-      <p>John Doe</p>
-    </a>
-  </div>
-
-
-          
-        
-          
-            <div class="new-meta-item date">
-  <a class='notlink'>
-    <i class="fas fa-calendar-alt" aria-hidden="true"></i>
-    <p>2019-09-02</p>
-  </a>
-</div>
-
-          
-        
-          
-            
-  
-  <div class='new-meta-item category'>
-    <a href='/categories/js/react/' rel="nofollow">
-      <i class="fas fa-folder-open" aria-hidden="true"></i>
-      <p>js&nbsp;/&nbsp;react</p>
-    </a>
-  </div>
-
-
-          
-        
-          
-            
-
-          
-        
-          
-            
-
-          
-        
-      </div>
-      
-        <hr>
-      
-    </div>
-  </section>
-
-
-  <section class="article typo">
-    <div class="article-entry" itemprop="articleBody">
-      <h1 id="react父子组件"><a href="#react父子组件" class="headerlink" title="react父子组件"></a>react父子组件</h1>
-      
-        <div class="readmore">
-          <a href="/2019/09/02/父子组件/" class="flat-box">
-            <i class="fas fa-book-open fa-fw" aria-hidden="true"></i>
-            阅读全文
-          </a>
-        </div>
-      
-    </div>
-    
-  </section>
-</article>
-
-          </div>
-        
-      
-        
-          <div class='post-wrapper'>
-            <article class="post reveal ">
-  
-
-
-  <section class='meta'>
-    
-    
-    <div class="meta" id="header-meta">
-      
-        
-  <h2 class="title">
-    <a href="/2019/09/02/闭包/">
-      闭包
-    </a>
-  </h2>
-
-
-      
-      <div class='new-meta-box'>
-        
-          
-        
-          
-            
-  <div class='new-meta-item author'>
-    <a href="http://106.52.23.212" rel="nofollow">
-      
-        <i class="fas fa-user" aria-hidden="true"></i>
-      
-      <p>John Doe</p>
-    </a>
-  </div>
-
-
-          
-        
-          
-            <div class="new-meta-item date">
-  <a class='notlink'>
-    <i class="fas fa-calendar-alt" aria-hidden="true"></i>
-    <p>2019-09-02</p>
-  </a>
-</div>
-
-          
-        
-          
-            
-  
-  <div class='new-meta-item category'>
-    <a href='/categories/js/' rel="nofollow">
-      <i class="fas fa-folder-open" aria-hidden="true"></i>
-      <p>js</p>
-    </a>
-  </div>
-
-
-          
-        
-          
-            
-
-          
-        
-          
-            
-
-          
-        
-      </div>
-      
-        <hr>
-      
-    </div>
-  </section>
-
-
-  <section class="article typo">
-    <div class="article-entry" itemprop="articleBody">
-      <h1 id="js中的闭包"><a href="#js中的闭包" class="headerlink" title="js中的闭包"></a>js中的闭包</h1>
-      
-        <div class="readmore">
-          <a href="/2019/09/02/闭包/" class="flat-box">
-            <i class="fas fa-book-open fa-fw" aria-hidden="true"></i>
-            阅读全文
-          </a>
-        </div>
-      
-    </div>
-    
-  </section>
-</article>
-
-          </div>
-        
-      
-        
-          <div class='post-wrapper'>
-            <article class="post reveal ">
-  
-
-
-  <section class='meta'>
-    
-    
-    <div class="meta" id="header-meta">
-      
-        
-  <h2 class="title">
-    <a href="/2019/09/02/hexo实现评论/">
-      Hexo博客添加评论功能
-    </a>
-  </h2>
-
-
-      
-      <div class='new-meta-box'>
-        
-          
-        
-          
-            
-  <div class='new-meta-item author'>
-    <a href="http://106.52.23.212" rel="nofollow">
-      
-        <i class="fas fa-user" aria-hidden="true"></i>
-      
-      <p>John Doe</p>
-    </a>
-  </div>
-
-
-          
-        
-          
-            <div class="new-meta-item date">
-  <a class='notlink'>
-    <i class="fas fa-calendar-alt" aria-hidden="true"></i>
-    <p>2019-09-02</p>
-  </a>
-</div>
-
-          
-        
-          
-            
-  
-  <div class='new-meta-item category'>
-    <a href='/categories/hexo/' rel="nofollow">
-      <i class="fas fa-folder-open" aria-hidden="true"></i>
-      <p>hexo</p>
-    </a>
-  </div>
-
-
-          
-        
-          
-            
-
-          
-        
-          
-            
-
-          
-        
-      </div>
-      
-        <hr>
-      
-    </div>
-  </section>
-
-
-  <section class="article typo">
-    <div class="article-entry" itemprop="articleBody">
-      <h1 id="hexo实现评论"><a href="#hexo实现评论" class="headerlink" title="hexo实现评论"></a>hexo实现评论</h1>
-      
-        <div class="readmore">
-          <a href="/2019/09/02/hexo实现评论/" class="flat-box">
-            <i class="fas fa-book-open fa-fw" aria-hidden="true"></i>
-            阅读全文
-          </a>
-        </div>
-      
-    </div>
-    
-  </section>
-</article>
-
-          </div>
-        
-      
-        
-          <div class='post-wrapper'>
-            <article class="post reveal ">
-  
-
-
-  <section class='meta'>
-    
-    
-    <div class="meta" id="header-meta">
-      
-        
-  <h2 class="title">
-    <a href="/2019/08/27/hello-world/">
-      Hello World
-    </a>
-  </h2>
-
-
-      
-      <div class='new-meta-box'>
-        
-          
-        
-          
-            
-  <div class='new-meta-item author'>
-    <a href="http://106.52.23.212" rel="nofollow">
-      
-        <i class="fas fa-user" aria-hidden="true"></i>
-      
-      <p>John Doe</p>
-    </a>
-  </div>
-
-
-          
-        
-          
-            <div class="new-meta-item date">
-  <a class='notlink'>
-    <i class="fas fa-calendar-alt" aria-hidden="true"></i>
-    <p>2019-08-27</p>
-  </a>
-</div>
-
-          
-        
-          
-            
-
-          
-        
-          
-            
-
-          
-        
-          
-            
-
-          
-        
-      </div>
-      
-        <hr>
-      
-    </div>
-  </section>
-
-
-  <section class="article typo">
-    <div class="article-entry" itemprop="articleBody">
-      <p>Welcome to <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="noopener">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="noopener">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="noopener">GitHub</a>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2>
-      
-        <div class="readmore">
-          <a href="/2019/08/27/hello-world/" class="flat-box">
-            <i class="fas fa-book-open fa-fw" aria-hidden="true"></i>
-            阅读全文
-          </a>
-        </div>
-      
-    </div>
-    
-  </section>
-</article>
-
-          </div>
-        
-      
-    
-  </section>
-  
-    
-    <!-- 根据主题中的设置决定是否在archive中针对摘要部分的MathJax公式加载mathjax.js文件 -->
-    
-    
-
-  
+  <script>
+    window.subData = {
+      title: '使用hexo搭建博客过程',
+      tools: true
+    }
+  </script>
 
 
 </div>
@@ -1221,6 +586,20 @@
           
           
             
+  <section class='widget toc-wrapper'>
+    
+<header class='pure'>
+  <div><i class="fas fa-list fa-fw" aria-hidden="true"></i>&nbsp;&nbsp;本文目录</div>
+  
+    <div class='wrapper'><a class="s-toc rightBtn" rel="external nofollow noopener noreferrer" href="javascript:void(0)"><i class="fas fa-thumbtack fa-fw"></i></a></div>
+  
+</header>
+
+    <div class='content pure'>
+      <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#hexo搭建博客"><span class="toc-text">hexo搭建博客</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#记一次搭建hexo个人博客的心得"><span class="toc-text">记一次搭建hexo个人博客的心得</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#前提：要有node环境和git，使用node-v和git-v检测"><span class="toc-text">前提：要有node环境和git，使用node -v和git -v检测</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#1-首先用淘宝镜像源cnpm代替npm-registry-镜像"><span class="toc-text">1. 首先用淘宝镜像源cnpm代替npm(registry: 镜像)</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2-输入cnpm看控制台是否报错"><span class="toc-text">2. 输入cnpm看控制台是否报错</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#解决方案"><span class="toc-text">解决方案</span></a></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#3-初始化一个博客"><span class="toc-text">3. 初始化一个博客</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#4-运行"><span class="toc-text">4. 运行</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#5-换主题-有git"><span class="toc-text">5. 换主题(有git)</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#2-编辑-config-yml"><span class="toc-text">2.     编辑_config.yml</span></a></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#6-推到git服务器上"><span class="toc-text">6. 推到git服务器上</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#2-编辑-config-yml-1"><span class="toc-text">2.     编辑_config.yml</span></a></li></ol></li></ol></li></ol></li></ol></li></ol>
+    </div>
+  </section>
+
 
           
         
@@ -1547,6 +926,36 @@
 
 
 
+
+  <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+  
+    
+      <script src="https://cdn.jsdelivr.net/gh/xaoxuu/volantis@1.0/js/volantis.min.js"></script>
+    
+  
+  <script>
+  var GUEST_INFO = ['nick','mail','link'];
+  var guest_info = 'nick,mail,link'.split(',').filter(function(item){
+    return GUEST_INFO.indexOf(item) > -1
+  });
+  var notify = 'true' == true;
+  var verify = 'true' == true;
+  var valine = new Valine();
+  valine.init({
+    el: '#valine_container',
+    notify: notify,
+    verify: verify,
+    guest_info: guest_info,
+    
+    appId: "JULxXezXTv7KS9MDvDExXwQ4-gzGzoHsz",
+    appKey: "QjE1mCzh410uWHDuXz0SOrQs",
+    placeholder: "快来评论吧~",
+    pageSize:'10',
+    avatar:'mp',
+    lang:'zh-cn',
+    highlight:'true'
+  })
+  </script>
 
 
 

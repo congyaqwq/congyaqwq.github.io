@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   
-  <title>使用hexo搭建博客过程 | Hexo</title>
+  <title>js字符串中的常用方法 | Hexo</title>
   
   
 
@@ -80,17 +80,6 @@
         </li>
       
         <li>
-          <a class="nav home" href="/friends/"
-            
-              rel="nofollow"
-            
-            
-            id="friends">
-            <i class='fas fa-link fa-fw'></i>&nbsp;友链
-          </a>
-        </li>
-      
-        <li>
           <a class="nav home" href="/about/"
             
               rel="nofollow"
@@ -154,17 +143,6 @@
 								</a>
 							</li>
       			
-  						<li>
-								<a class="nav flat-box" href="/blog/archives/"
-                  
-                    rel="nofollow"
-                  
-                  
-                  id="blogarchives">
-									<i class='fas fa-archive fa-fw'></i>&nbsp;归档
-								</a>
-							</li>
-      			
       		
 				</ul>
 			</div>
@@ -172,7 +150,7 @@
 			
 				<div class="m_search">
 					<form name="searchform" class="form u-search-form">
-						<input type="text" class="input u-search-input" placeholder="Search" />
+						<input type="text" class="input u-search-input" placeholder="搜索" />
 						<i class="icon fas fa-search fa-fw"></i>
 					</form>
 				</div>
@@ -212,13 +190,13 @@
             </li>
           
             <li>
-							<a class="nav flat-box" href="/blog/archives/"
+							<a class="nav flat-box" href="/blog/categories/"
                 
                   rel="nofollow"
                 
                 
-                id="blogarchives">
-								<i class='fas fa-archive fa-fw'></i>&nbsp;文章归档
+                id="blogcategories">
+								<i class='fas fa-folder-open fa-fw'></i>&nbsp;文章分类
 							</a>
             </li>
           
@@ -227,18 +205,7 @@
                 
                 
                 id="projects">
-								<i class='fas fa-code-branch fa-fw'></i>&nbsp;开源项目
-							</a>
-            </li>
-          
-            <li>
-							<a class="nav flat-box" href="/friends/"
-                
-                  rel="nofollow"
-                
-                
-                id="friends">
-								<i class='fas fa-link fa-fw'></i>&nbsp;我的友链
+								<i class='fas fa-code-branch fa-fw'></i>&nbsp;项目
 							</a>
             </li>
           
@@ -292,8 +259,8 @@
         
   
     <h1 class="title">
-      <a href="/2019/08/27/搭建记录/">
-        使用hexo搭建博客过程
+      <a href="/2019/09/02/字符串方法/">
+        js字符串中的常用方法
       </a>
     </h1>
   
@@ -307,7 +274,7 @@
           
             
   <div class='new-meta-item author'>
-    <a href="http://yoursite.com" rel="nofollow">
+    <a href="http://106.52.23.212" rel="nofollow">
       
         <i class="fas fa-user" aria-hidden="true"></i>
       
@@ -322,7 +289,7 @@
             <div class="new-meta-item date">
   <a class='notlink'>
     <i class="fas fa-calendar-alt" aria-hidden="true"></i>
-    <p>2019-08-27</p>
+    <p>2019-09-02</p>
   </a>
 </div>
 
@@ -330,6 +297,14 @@
         
           
             
+  
+  <div class='new-meta-item category'>
+    <a href='/categories/js/' rel="nofollow">
+      <i class="fas fa-folder-open" aria-hidden="true"></i>
+      <p>js</p>
+    </a>
+  </div>
+
 
           
         
@@ -366,32 +341,55 @@
 
       <section class="article typo">
         <div class="article-entry" itemprop="articleBody">
-          <h1 id="hexo搭建博客"><a href="#hexo搭建博客" class="headerlink" title="hexo搭建博客"></a>hexo搭建博客</h1><a id="more"></a>
+          <h1 id="字符串方法"><a href="#字符串方法" class="headerlink" title="字符串方法"></a>字符串方法</h1><a id="more"></a>
 
-<h1 id="记一次搭建hexo个人博客的心得"><a href="#记一次搭建hexo个人博客的心得" class="headerlink" title="记一次搭建hexo个人博客的心得"></a>记一次搭建hexo个人博客的心得</h1><h3 id="前提：要有node环境和git，使用node-v和git-v检测"><a href="#前提：要有node环境和git，使用node-v和git-v检测" class="headerlink" title="前提：要有node环境和git，使用node -v和git -v检测"></a>前提：要有node环境和git，使用node -v和git -v检测</h3><h4 id="1-首先用淘宝镜像源cnpm代替npm-registry-镜像"><a href="#1-首先用淘宝镜像源cnpm代替npm-registry-镜像" class="headerlink" title="1. 首先用淘宝镜像源cnpm代替npm(registry: 镜像)"></a>1. 首先用淘宝镜像源cnpm代替npm(registry: 镜像)</h4><p><code>sudo npm install -g cnpm -registry=https://registry.npm.taobao.org</code></p>
-<p>说明：-g全局安装，使用淘宝镜像源cnpm</p>
-<pre><code>//也可以直接安装，不花里胡哨
-    npm install hexo-cli -g</code></pre><h4 id="2-输入cnpm看控制台是否报错"><a href="#2-输入cnpm看控制台是否报错" class="headerlink" title="2. 输入cnpm看控制台是否报错"></a>2. 输入cnpm看控制台是否报错</h4><h5 id="解决方案"><a href="#解决方案" class="headerlink" title="解决方案"></a>解决方案</h5><pre><code>//安装要自己配置软链接，亲～
-    sudo ln -s ~/node/bin/cnpm /usr/local/bin
-    sudo ln -s ~/node/bin/hexo /usr/local/bin</code></pre><h4 id="3-初始化一个博客"><a href="#3-初始化一个博客" class="headerlink" title="3. 初始化一个博客"></a>3. 初始化一个博客</h4><pre><code>//记得sudo
-    sudo hexo init blog
-    //创建
-    hexo n
-    //new一篇文章(要在source文件夹中)
-    vim xxx.md
-    //使用Markdown格式编辑，在初始化后会自动生成新的文章</code></pre><h4 id="4-运行"><a href="#4-运行" class="headerlink" title="4. 运行"></a>4. 运行</h4><pre><code>hexo server
-//运行服务器，可以简写成hexo s，在localhost:4000上可以查看网页</code></pre><h4 id="5-换主题-有git"><a href="#5-换主题-有git" class="headerlink" title="5. 换主题(有git)"></a>5. 换主题(有git)</h4><p>官网链接：<a href="https://hexo.io/themes/" target="_blank" rel="noopener">https://hexo.io/themes/</a></p>
-<p>#####1. 进入目录下下载，下载到blog(当前应用名称目录下)的themes中</p>
-<pre><code>git clone https://github.com/xaoxuu/hexo-theme-material-x 
-这是推荐的一个主题，但是貌似有bug，慎用。</code></pre><h5 id="2-编辑-config-yml"><a href="#2-编辑-config-yml" class="headerlink" title="2.     编辑_config.yml"></a>2.     编辑_config.yml</h5><p>找到 Extensions中的theme，在文档末尾处<br>theme: hexo-theme-cutie//改成放在themes下的文件夹名称即可</p>
-<p>#####3. 载入主题<br>    hexo clean //清除缓存<br>    hexo g  //重新生成<br>    hexo s  //即可看到主题更换之后的效果</p>
-<h4 id="6-推到git服务器上"><a href="#6-推到git服务器上" class="headerlink" title="6. 推到git服务器上"></a>6. 推到git服务器上</h4><p>#####1. 安装一个插件<br>    cnpm install –save hexo-deployer-git</p>
-<h5 id="2-编辑-config-yml-1"><a href="#2-编辑-config-yml-1" class="headerlink" title="2.     编辑_config.yml"></a>2.     编辑_config.yml</h5><pre><code>调到配置文件文档末尾，找到deploy
-deploy:
-  type: git
-  repo: git@github.com:congyaqwq/congyaqwq.github.io.git    
- //自己的github仓库地址，新建仓库名称一定是用户名.github.io
-  branch: master</code></pre><p>#####3. 部署到服务器hexo deployment<br>        hexo d 上传到服务器<br>最后可以直接使用用户名.github.io访问<br><a href="https://congyaqwq.github.io" target="_blank" rel="noopener">成品可以点击</a></p>
+<h1 id="js字符串中的常用方法"><a href="#js字符串中的常用方法" class="headerlink" title="js字符串中的常用方法"></a>js字符串中的常用方法</h1><h2 id="1-length"><a href="#1-length" class="headerlink" title="1.length"></a>1.length</h2><ul>
+<li>作用：返回字符串长度<h2 id="2-charAt"><a href="#2-charAt" class="headerlink" title="2.charAt()"></a>2.charAt()</h2></li>
+<li>作用：返回指定位置的字符</li>
+<li>参数：整数，输入其他默认为第一位</li>
+<li>返回值，指定位置字符<h2 id="3-charCodeAt"><a href="#3-charCodeAt" class="headerlink" title="3.charCodeAt()"></a>3.charCodeAt()</h2></li>
+<li>作用：返回指定位置的字符串编码</li>
+<li>参数：整数</li>
+<li>返回值：字符的编码<h2 id="4-indexOf"><a href="#4-indexOf" class="headerlink" title="4.indexOf()"></a>4.indexOf()</h2></li>
+<li>作用：返回指定字符在字符串中的位置</li>
+<li>参数：需要查找的字符或字符串，可以有第二个参数，代表开始查找的位置</li>
+<li>返回值：要查找的字符串在字符串中的位置<h2 id="5-lastIndexOf"><a href="#5-lastIndexOf" class="headerlink" title="5.lastIndexOf()"></a>5.lastIndexOf()</h2></li>
+<li>作用：从尾部向前找，返回字符所在的位置</li>
+<li>参数：需要查找的字符或字符串，可以有第二个参数，代表开始查找的位置</li>
+<li>返回值：要查找的字符串在字符串中的位置<h2 id="6-concat"><a href="#6-concat" class="headerlink" title="6.concat()"></a>6.concat()</h2></li>
+<li>作用：连接字符串</li>
+<li>参数：需要连接的字符串，可以有多个</li>
+<li>返回值：一个生成的新字符串</li>
+<li>是否改变原数组：否</li>
+<li>备注：如果参数为一个对象，则将其变成字符串[object Object]<h2 id="7-slice"><a href="#7-slice" class="headerlink" title="7.slice()"></a>7.slice()</h2></li>
+<li>作用：提取某个字符串的一部分，生成一个新的字符串</li>
+<li>参数：第一个参数为开始位置，如果为负数，如-a，则开始位置为str.length-a，第二个参数可选，不写代表直接到最后一个，为负数则直接加上长度来计算</li>
+<li>返回值：新生成的数组</li>
+<li>是否改变原数组：否</li>
+<li>备注：如果第二个参数小于第一个，则返回空字符串<h2 id="8-substr"><a href="#8-substr" class="headerlink" title="8.substr()"></a>8.substr()</h2></li>
+<li>作用：提取某个字符串一部分，生成新的字符串</li>
+<li>参数：第一个参数起始位置，第二个参数为个数，如果省略，则将后面的都取出来</li>
+<li>返回值，取出来的字符串</li>
+<li>是否改变原数组：否</li>
+<li>备注：第二个参数为负数，返回空字符串<h2 id="9-substring"><a href="#9-substring" class="headerlink" title="9.substring()"></a>9.substring()</h2></li>
+<li>作用：提取字符串某一部分，并返回新的字符串</li>
+<li>参数：第一个参数为起始位置，第二个参数为可选参数，为结束位置（不包括）</li>
+<li>返回值：取出的新数组</li>
+<li>是否改变原数组：否</li>
+<li>备注：若第一个参数大于第二个，则会交换位置，若相等，返回空字符串；如果任意一个参数小于0或者为NaN，都视为0；<h2 id="10-toUpCase"><a href="#10-toUpCase" class="headerlink" title="10.toUpCase()"></a>10.toUpCase()</h2></li>
+<li>作用：将字符串都转为大写</li>
+<li>参数：无</li>
+<li>返回值：处理后的新字符串</li>
+<li>是否改变原数组：否<h2 id="11-toLowerCase"><a href="#11-toLowerCase" class="headerlink" title="11.toLowerCase()"></a>11.toLowerCase()</h2></li>
+<li>作用：将字符串都转为小写</li>
+<li>参数：无</li>
+<li>返回值：处理后的新字符串</li>
+<li>是否改变原数组：否<h2 id="12-trim"><a href="#12-trim" class="headerlink" title="12.trim()"></a>12.trim()</h2></li>
+<li>作用：去除字符串前后的空格</li>
+<li>参数：无</li>
+<li>返回值：去除空格之后的新字符串</li>
+<li>是否改变原数组：否</li>
+</ul>
 
         </div>
         
@@ -403,10 +401,10 @@ deploy:
     <div class='new-meta-box'>
       
         
-          <div class="new-meta-item date" itemprop="dateUpdated" datetime="2019-08-27T23:15:40+08:00">
+          <div class="new-meta-item date" itemprop="dateUpdated" datetime="2019-09-02T22:51:21+08:00">
   <a class='notlink'>
     <i class="fas fa-clock" aria-hidden="true"></i>
-    <p>last updated at Aug 27, 2019</p>
+    <p>最后更新于 Sep 2, 2019</p>
   </a>
 </div>
 
@@ -425,7 +423,7 @@ deploy:
       
         <a class="-mob-share-qq" title="QQ好友" rel="external nofollow noopener noreferrer"
           
-          href="http://connect.qq.com/widget/shareqq/index.html?url=http://yoursite.com/2019/08/27/搭建记录/&title=使用hexo搭建博客过程 | Hexo&summary=hexo搭建博客"
+          href="http://connect.qq.com/widget/shareqq/index.html?url=http://106.52.23.212/2019/09/02/字符串方法/&title=js字符串中的常用方法 | Hexo&summary=字符串方法"
           
           >
           
@@ -437,7 +435,7 @@ deploy:
       
         <a class="-mob-share-qzone" title="QQ空间" rel="external nofollow noopener noreferrer"
           
-          href="https://sns.qzone.qq.com/cgi-bin/qzshare/cgi_qzshare_onekey?url=http://yoursite.com/2019/08/27/搭建记录/&title=使用hexo搭建博客过程 | Hexo&summary=hexo搭建博客"
+          href="https://sns.qzone.qq.com/cgi-bin/qzshare/cgi_qzshare_onekey?url=http://106.52.23.212/2019/09/02/字符串方法/&title=js字符串中的常用方法 | Hexo&summary=字符串方法"
           
           >
           
@@ -449,7 +447,7 @@ deploy:
       
         <a class="-mob-share-weibo" title="微博" rel="external nofollow noopener noreferrer"
           
-          href="http://service.weibo.com/share/share.php?url=http://yoursite.com/2019/08/27/搭建记录/&title=使用hexo搭建博客过程 | Hexo&summary=hexo搭建博客"
+          href="http://service.weibo.com/share/share.php?url=http://106.52.23.212/2019/09/02/字符串方法/&title=js字符串中的常用方法 | Hexo&summary=字符串方法"
           
           >
           
@@ -475,11 +473,11 @@ deploy:
                 
                     <section class="prev">
                         <span class="art-item-left">
-                            <h6><i class="fas fa-chevron-left" aria-hidden="true"></i>&nbsp;Previous</h6>
+                            <h6><i class="fas fa-chevron-left" aria-hidden="true"></i>&nbsp;上一页</h6>
                             <h4>
-                                <a href="/2019/08/27/hexo实现评论/" rel="prev" title="Hexo博客添加评论功能">
+                                <a href="/2019/09/02/git上传/" rel="prev" title="git上传文件操作">
                                   
-                                      Hexo博客添加评论功能
+                                      git上传文件操作
                                   
                                 </a>
                             </h4>
@@ -490,11 +488,11 @@ deploy:
                 
                     <section class="next">
                         <span class="art-item-right" aria-hidden="true">
-                            <h6>Next&nbsp;<i class="fas fa-chevron-right" aria-hidden="true"></i></h6>
+                            <h6>下一页&nbsp;<i class="fas fa-chevron-right" aria-hidden="true"></i></h6>
                             <h4>
-                                <a href="/2019/08/27/字符串方法/" rel="prev" title="js字符串中的常用方法">
+                                <a href="/2019/09/02/数组方法/" rel="prev" title="js数组方法总结">
                                     
-                                        js字符串中的常用方法
+                                        js数组方法总结
                                     
                                 </a>
                             </h4>
@@ -515,7 +513,7 @@ deploy:
 
   <article class="post white-box comments">
     <section class="article typo">
-      <h4><i class="fas fa-comments fa-fw" aria-hidden="true"></i>&nbsp;Comments</h4>
+      <h4><i class="fas fa-comments fa-fw" aria-hidden="true"></i>&nbsp;评论</h4>
       
       
       
@@ -541,7 +539,7 @@ deploy:
 
   <script>
     window.subData = {
-      title: '使用hexo搭建博客过程',
+      title: 'js字符串中的常用方法',
       tools: true
     }
   </script>
@@ -576,7 +574,7 @@ deploy:
           
         
           
-            <a href="mailto:me@xaoxuu.com"
+            <a href="mailto:lc182540@163.com"
               class="social fas fa-envelope flat-btn"
               target="_blank"
               rel="external nofollow noopener noreferrer">
@@ -584,7 +582,7 @@ deploy:
           
         
           
-            <a href="https://github.com/xaoxuu"
+            <a href="https://github.com/congyaqwq"
               class="social fab fa-github flat-btn"
               target="_blank"
               rel="external nofollow noopener noreferrer">
@@ -614,14 +612,14 @@ deploy:
   <section class='widget toc-wrapper'>
     
 <header class='pure'>
-  <div><i class="fas fa-list fa-fw" aria-hidden="true"></i>&nbsp;&nbsp;TOC</div>
+  <div><i class="fas fa-list fa-fw" aria-hidden="true"></i>&nbsp;&nbsp;本文目录</div>
   
     <div class='wrapper'><a class="s-toc rightBtn" rel="external nofollow noopener noreferrer" href="javascript:void(0)"><i class="fas fa-thumbtack fa-fw"></i></a></div>
   
 </header>
 
     <div class='content pure'>
-      <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#hexo搭建博客"><span class="toc-text">hexo搭建博客</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#记一次搭建hexo个人博客的心得"><span class="toc-text">记一次搭建hexo个人博客的心得</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#前提：要有node环境和git，使用node-v和git-v检测"><span class="toc-text">前提：要有node环境和git，使用node -v和git -v检测</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#1-首先用淘宝镜像源cnpm代替npm-registry-镜像"><span class="toc-text">1. 首先用淘宝镜像源cnpm代替npm(registry: 镜像)</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2-输入cnpm看控制台是否报错"><span class="toc-text">2. 输入cnpm看控制台是否报错</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#解决方案"><span class="toc-text">解决方案</span></a></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#3-初始化一个博客"><span class="toc-text">3. 初始化一个博客</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#4-运行"><span class="toc-text">4. 运行</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#5-换主题-有git"><span class="toc-text">5. 换主题(有git)</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#2-编辑-config-yml"><span class="toc-text">2.     编辑_config.yml</span></a></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#6-推到git服务器上"><span class="toc-text">6. 推到git服务器上</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#2-编辑-config-yml-1"><span class="toc-text">2.     编辑_config.yml</span></a></li></ol></li></ol></li></ol></li></ol></li></ol>
+      <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#字符串方法"><span class="toc-text">字符串方法</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#js字符串中的常用方法"><span class="toc-text">js字符串中的常用方法</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-length"><span class="toc-text">1.length</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-charAt"><span class="toc-text">2.charAt()</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-charCodeAt"><span class="toc-text">3.charCodeAt()</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#4-indexOf"><span class="toc-text">4.indexOf()</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#5-lastIndexOf"><span class="toc-text">5.lastIndexOf()</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#6-concat"><span class="toc-text">6.concat()</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#7-slice"><span class="toc-text">7.slice()</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#8-substr"><span class="toc-text">8.substr()</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#9-substring"><span class="toc-text">9.substring()</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#10-toUpCase"><span class="toc-text">10.toUpCase()</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#11-toLowerCase"><span class="toc-text">11.toLowerCase()</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#12-trim"><span class="toc-text">12.trim()</span></a></li></ol></li></ol>
     </div>
   </section>
 
@@ -652,16 +650,16 @@ deploy:
           近期文章
         </a></li>
       
-        <li><a class="flat-box" title="/blog/archives/" href="/blog/archives/"
+        <li><a class="flat-box" title="/blog/categories/" href="/blog/categories/"
           
             rel="nofollow"
           
           
-          id="blogarchives">
+          id="blogcategories">
           
-            <i class="fas fa-archive fa-fw" aria-hidden="true"></i>
+            <i class="fas fa-folder-open fa-fw" aria-hidden="true"></i>
           
-          文章归档
+          文章分类
         </a></li>
       
         <li><a class="flat-box" title="/projects/" href="/projects/"
@@ -672,18 +670,6 @@ deploy:
             <i class="fas fa-code-branch fa-fw" aria-hidden="true"></i>
           
           开源项目
-        </a></li>
-      
-        <li><a class="flat-box" title="/friends/" href="/friends/"
-          
-            rel="nofollow"
-          
-          
-          id="friends">
-          
-            <i class="fas fa-link fa-fw" aria-hidden="true"></i>
-          
-          我的友链
         </a></li>
       
         <li><a class="flat-box" title="https://xaoxuu.com/wiki/material-x/" href="https://xaoxuu.com/wiki/material-x/"
@@ -721,6 +707,39 @@ deploy:
           
           
             
+  <section class='widget category'>
+    
+<header class='pure'>
+  <div><i class="fas fa-folder-open fa-fw" aria-hidden="true"></i>&nbsp;&nbsp;文章分类</div>
+  
+    <a class="rightBtn"
+    
+      rel="nofollow"
+    
+    
+    href="/blog/categories/"
+    title="blog/categories/">
+    <i class="fas fa-expand-arrows-alt fa-fw"></i></a>
+  
+</header>
+
+    <div class='content pure'>
+      <ul class="entry">
+        
+          <li><a class="flat-box" title="/categories/git/" href="/categories/git/"><div class='name'>git</div><div class='badge'>(1)</div></a></li>
+        
+          <li><a class="flat-box" title="/categories/hexo/" href="/categories/hexo/"><div class='name'>hexo</div><div class='badge'>(2)</div></a></li>
+        
+          <li><a class="flat-box" title="/categories/js/" href="/categories/js/"><div class='name'>js</div><div class='badge'>(4)</div></a></li>
+        
+          <li><a class="flat-box child" title="/categories/js/react/" href="/categories/js/react/"><div class='name'>react</div><div class='badge'>(1)</div></a></li>
+        
+          <li><a class="flat-box" title="/categories/面试/" href="/categories/面试/"><div class='name'>面试</div><div class='badge'>(1)</div></a></li>
+        
+      </ul>
+    </div>
+  </section>
+
 
           
         
@@ -800,7 +819,7 @@ deploy:
         
       
         
-          <a href="mailto:me@xaoxuu.com"
+          <a href="mailto:lc182540@163.com"
             class="social fas fa-envelope flat-btn"
             target="_blank"
             rel="external nofollow noopener noreferrer">
@@ -808,7 +827,7 @@ deploy:
         
       
         
-          <a href="https://github.com/xaoxuu"
+          <a href="https://github.com/congyaqwq"
             class="social fab fa-github flat-btn"
             target="_blank"
             rel="external nofollow noopener noreferrer">
@@ -826,19 +845,19 @@ deploy:
     </div>
   
   <br>
-  <div><p>Blog content follows the <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.en">Attribution-NonCommercial-ShareAlike 4.0 International (CC BY-NC-SA 4.0) License</a></p>
+  <div><p>博客内容遵循 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh">署名-非商业性使用-相同方式共享 4.0 国际 (CC BY-NC-SA 4.0) 协议</a></p>
 </div>
   <div>
-    Use
+    本站使用
     <a href="https://xaoxuu.com/wiki/material-x/" target="_blank" class="codename">Material X</a>
-    as theme
+    作为主题
     
-      , 
-      total visits
+      ，
+      总访问量为
       <span id="busuanzi_value_site_pv"><i class="fas fa-spinner fa-spin fa-fw" aria-hidden="true"></i></span>
-      times
+      次
     
-    . 
+    。
   </div>
 </footer>
 <script>setLoadingBarProgress(80);</script>
@@ -974,15 +993,15 @@ deploy:
 <!-- 复制 -->
 <script src="https://cdn.jsdelivr.net/npm/clipboard@2/dist/clipboard.min.js"></script>
 <script>
-  let COPY_SUCCESS = "Copied";
-  let COPY_FAILURE = "Copy failed";
+  let COPY_SUCCESS = "复制成功";
+  let COPY_FAILURE = "复制失败";
   /*页面载入完成后，创建复制按钮*/
   !function (e, t, a) {
     /* code */
     var initCopyCode = function(){
       var copyHtml = '';
       copyHtml += '<button class="btn-copy" data-clipboard-snippet="">';
-      copyHtml += '  <i class="fa fa-copy"></i><span>Copy</span>';
+      copyHtml += '  <i class="fa fa-copy"></i><span>复制</span>';
       copyHtml += '</button>';
       $(".highlight .code pre").before(copyHtml);
       var clipboard = new ClipboardJS('.btn-copy', {
