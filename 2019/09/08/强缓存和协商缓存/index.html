@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   
-  <title>父子组件方法调用 | Smart</title>
+  <title>强缓存和协商缓存 | Smart</title>
   
   
 
@@ -259,8 +259,8 @@
         
   
     <h1 class="title">
-      <a href="/2019/09/02/父子组件/">
-        父子组件方法调用
+      <a href="/2019/09/08/强缓存和协商缓存/">
+        强缓存和协商缓存
       </a>
     </h1>
   
@@ -289,7 +289,7 @@
             <div class="new-meta-item date">
   <a class='notlink'>
     <i class="fas fa-calendar-alt" aria-hidden="true"></i>
-    <p>2019-09-02</p>
+    <p>2019-09-08</p>
   </a>
 </div>
 
@@ -297,14 +297,6 @@
         
           
             
-  
-  <div class='new-meta-item category'>
-    <a href='/categories/js/react/' rel="nofollow">
-      <i class="fas fa-folder-open" aria-hidden="true"></i>
-      <p>js&nbsp;/&nbsp;react</p>
-    </a>
-  </div>
-
 
           
         
@@ -341,39 +333,12 @@
 
       <section class="article typo">
         <div class="article-entry" itemprop="articleBody">
-          <h1 id="react父子组件"><a href="#react父子组件" class="headerlink" title="react父子组件"></a>react父子组件</h1><a id="more"></a>
+          <h2 id="强缓存和协商缓存"><a href="#强缓存和协商缓存" class="headerlink" title="强缓存和协商缓存"></a>强缓存和协商缓存</h2><a id="more"></a>
 
-<h2 id="父子组件之间方法调用"><a href="#父子组件之间方法调用" class="headerlink" title="父子组件之间方法调用"></a>父子组件之间方法调用</h2><h3 id="父组件调用子组件方法"><a href="#父组件调用子组件方法" class="headerlink" title="父组件调用子组件方法"></a>父组件调用子组件方法</h3><ol>
-<li><p>父组件中定义onRef事件，传递给子组件</p>
-<figure class="highlight ruby"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">onRef=(ref)=&gt;&#123;</span><br><span class="line">	this.child=ref;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>在子组件的componentDidMount方法内调用onRef</p>
-<figure class="highlight ruby"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">componentDidMount() &#123;</span><br><span class="line">	this.props.onRef(this);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>拿到this.child值之后可以直接调用子组件中的方法</p>
-<figure class="highlight ruby"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">changeChild=()=&gt;&#123;</span><br><span class="line">	this.child.childChange();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-</li>
-</ol>
-<hr>
-<h3 id="子组件调用父组件方法"><a href="#子组件调用父组件方法" class="headerlink" title="子组件调用父组件方法"></a>子组件调用父组件方法</h3><ol>
-<li><p>父组件通过传递参数给子组件传递</p>
-<figure class="highlight ruby"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;CRefs onRef=&#123;this.onRef&#125; parentChange=&#123;this.parentChange&#125;/&gt;</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>子组件拿到之后可以直接调用</p>
-<figure class="highlight ruby"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">changeParent=()=&gt;&#123;</span><br><span class="line">	this.props.parentChange();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-</li>
-</ol>
-<h3 id="父组件中直接修改子组件中的值"><a href="#父组件中直接修改子组件中的值" class="headerlink" title="父组件中直接修改子组件中的值"></a>父组件中直接修改子组件中的值</h3><ol>
-<li><p>使用子组件时传递参数ref=’child’</p>
-<figure class="highlight ruby"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;CRefs ref=<span class="string">'childCom'</span> onRef=&#123;this.onRefparentChange=&#123;this.parentChange&#125;/&gt;</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>父组件直接使用refs.child获取子组件，并调用</p>
-<figure class="highlight ruby"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">changeChildState=()=&gt;&#123;</span><br><span class="line">        this.refs.childCom.setState(&#123;</span><br><span class="line">            <span class="symbol">msg:</span><span class="string">'通过父组件直接改子组件'</span></span><br><span class="line">        &#125;)</span><br><span class="line">   &#125;</span><br></pre></td></tr></table></figure>
-
-</li>
-</ol>
+<h3 id="强缓存和协商缓存-1"><a href="#强缓存和协商缓存-1" class="headerlink" title="强缓存和协商缓存"></a>强缓存和协商缓存</h3><p>强缓存：直接从本地副本比对读取，不去请求服务器，返回的状态码是 200。<br>强缓存主要包括 expires 和 cache-control<br><code>expires</code>:为一个时间戳，表示资源过期时间，用户更改系统时间会受到影响<br><code>cache-control</code>:为一个时间长度，优先级更高，不依赖客户端时间<br>协商缓存：会去服务器比对，若没改变才直接读取本地缓存，返回的状态码是 304。<br><code>last-modified</code>:记录资源最后修改的时间。启用后，请求资源之后的响应头会增加一个 last-modified 字段<br>当再次请求该资源时，请求头中会带有 if-modified-since 字段，值是之前返回的 last-modified 的值，如：if-modified-since:Thu, 20 Dec 2018 11:36:00 GMT。服务端会对比该字段和资源的最后修改时间，若一致则证明没有被修改，告知浏览器可直接使用缓存并返回 304；若不一致则直接返回修改后的资源，并修改 last-modified 为新的值。<br>但 last-modified 有以下两个缺点：<br>只要编辑了，不管内容是否真的有改变，都会以这最后修改的时间作为判断依据，当成新资源返回，从而导致了没必要的请求响应，而这正是缓存本来的作用即避免没必要的请求。<br>时间的精确度只能到秒，如果在一秒内的修改是检测不到更新的，仍会告知浏览器使用旧的缓存。<br><code>etag</code>:为了解决 last-modified 上述问题，有了 etag。 etag 会基于资源的内容编码生成一串唯一的标识字符串，只要内容不同，就会生成不同的 etag。启用 etag 之后，请求资源后的响应返回会增加一个 etag 字段。</p>
+<h3 id="访问和刷新可以分为以下三种情况："><a href="#访问和刷新可以分为以下三种情况：" class="headerlink" title="访问和刷新可以分为以下三种情况："></a>访问和刷新可以分为以下三种情况：</h3><h4 id="1-标签进入、输入url回车进入"><a href="#1-标签进入、输入url回车进入" class="headerlink" title="1.标签进入、输入url回车进入"></a>1.标签进入、输入url回车进入</h4><p>这种情况下会根据实际设计的缓存策略去判断。<br>没有设置 no-cache 和 no-store，所以默认先走强缓存路线。根据 cache-control （expires 优先级低）判断缓存是否过期，若没有过期则此时返回 200(from cache)。<br>若本地缓存已经过期再走协商缓存路线，根据之前的 last-modified 值去与服务器比对，若这个时间之后没有改过则去读取本地缓存，返回 304(not modified)。<br>否则返回新的资源，状态码 200(ok)，并更新返回响应的 last-modified 值。</p>
+<h4 id="2-按刷新按钮、F5-刷新、网页右键“重新加载”"><a href="#2-按刷新按钮、F5-刷新、网页右键“重新加载”" class="headerlink" title="2.按刷新按钮、F5 刷新、网页右键“重新加载”"></a>2.按刷新按钮、F5 刷新、网页右键“重新加载”</h4><p>这种情况下，实际是浏览器将 cache-control 的 max-age 直接设置成了 0，让缓存立即过期，直接走协商缓存路线。</p>
+<h4 id="3-ctrl-F5-强制刷新"><a href="#3-ctrl-F5-强制刷新" class="headerlink" title="3.ctrl + F5 强制刷新"></a>3.ctrl + F5 强制刷新</h4><p>强制刷新的情况下，浏览器会强行设置 no-cache，强制获取最新的资源，就连 if-modified-since 等其他缓存协议字段都会被吃掉。</p>
 
         </div>
         
@@ -385,10 +350,10 @@
     <div class='new-meta-box'>
       
         
-          <div class="new-meta-item date" itemprop="dateUpdated" datetime="2019-09-02T22:51:08+08:00">
+          <div class="new-meta-item date" itemprop="dateUpdated" datetime="2019-09-08T15:31:06+08:00">
   <a class='notlink'>
     <i class="fas fa-clock" aria-hidden="true"></i>
-    <p>last updated at Sep 2, 2019</p>
+    <p>last updated at Sep 8, 2019</p>
   </a>
 </div>
 
@@ -407,7 +372,7 @@
       
         <a class="-mob-share-qq" title="QQ好友" rel="external nofollow noopener noreferrer"
           
-          href="http://connect.qq.com/widget/shareqq/index.html?url=http://106.52.23.212/2019/09/02/父子组件/&title=父子组件方法调用 | Smart&summary=react父子组件"
+          href="http://connect.qq.com/widget/shareqq/index.html?url=http://106.52.23.212/2019/09/08/强缓存和协商缓存/&title=强缓存和协商缓存 | Smart&summary=强缓存和协商缓存"
           
           >
           
@@ -419,7 +384,7 @@
       
         <a class="-mob-share-qzone" title="QQ空间" rel="external nofollow noopener noreferrer"
           
-          href="https://sns.qzone.qq.com/cgi-bin/qzshare/cgi_qzshare_onekey?url=http://106.52.23.212/2019/09/02/父子组件/&title=父子组件方法调用 | Smart&summary=react父子组件"
+          href="https://sns.qzone.qq.com/cgi-bin/qzshare/cgi_qzshare_onekey?url=http://106.52.23.212/2019/09/08/强缓存和协商缓存/&title=强缓存和协商缓存 | Smart&summary=强缓存和协商缓存"
           
           >
           
@@ -431,7 +396,7 @@
       
         <a class="-mob-share-weibo" title="微博" rel="external nofollow noopener noreferrer"
           
-          href="http://service.weibo.com/share/share.php?url=http://106.52.23.212/2019/09/02/父子组件/&title=父子组件方法调用 | Smart&summary=react父子组件"
+          href="http://service.weibo.com/share/share.php?url=http://106.52.23.212/2019/09/08/强缓存和协商缓存/&title=强缓存和协商缓存 | Smart&summary=强缓存和协商缓存"
           
           >
           
@@ -455,28 +420,14 @@
         
             <div class="prev-next">
                 
-                    <section class="prev">
-                        <span class="art-item-left">
-                            <h6><i class="fas fa-chevron-left" aria-hidden="true"></i>&nbsp;Previous</h6>
-                            <h4>
-                                <a href="/2019/09/02/数组方法/" rel="prev" title="js数组方法总结">
-                                  
-                                      js数组方法总结
-                                  
-                                </a>
-                            </h4>
-                            
-                        </span>
-                    </section>
-                
                 
                     <section class="next">
                         <span class="art-item-right" aria-hidden="true">
                             <h6>Next&nbsp;<i class="fas fa-chevron-right" aria-hidden="true"></i></h6>
                             <h4>
-                                <a href="/2019/09/02/闭包/" rel="prev" title="闭包">
+                                <a href="/2019/09/08/浏览器输入URL之后过程/" rel="prev" title="浏览器输入URL过程全解析">
                                     
-                                        闭包
+                                        浏览器输入URL过程全解析
                                     
                                 </a>
                             </h4>
@@ -523,7 +474,7 @@
 
   <script>
     window.subData = {
-      title: '父子组件方法调用',
+      title: '强缓存和协商缓存',
       tools: true
     }
   </script>
@@ -603,7 +554,7 @@
 </header>
 
     <div class='content pure'>
-      <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#react父子组件"><span class="toc-text">react父子组件</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#父子组件之间方法调用"><span class="toc-text">父子组件之间方法调用</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#父组件调用子组件方法"><span class="toc-text">父组件调用子组件方法</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#子组件调用父组件方法"><span class="toc-text">子组件调用父组件方法</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#父组件中直接修改子组件中的值"><span class="toc-text">父组件中直接修改子组件中的值</span></a></li></ol></li></ol></li></ol>
+      <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#强缓存和协商缓存"><span class="toc-text">强缓存和协商缓存</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#强缓存和协商缓存-1"><span class="toc-text">强缓存和协商缓存</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#访问和刷新可以分为以下三种情况："><span class="toc-text">访问和刷新可以分为以下三种情况：</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#1-标签进入、输入url回车进入"><span class="toc-text">1.标签进入、输入url回车进入</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2-按刷新按钮、F5-刷新、网页右键“重新加载”"><span class="toc-text">2.按刷新按钮、F5 刷新、网页右键“重新加载”</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#3-ctrl-F5-强制刷新"><span class="toc-text">3.ctrl + F5 强制刷新</span></a></li></ol></li></ol></li></ol>
     </div>
   </section>
 
